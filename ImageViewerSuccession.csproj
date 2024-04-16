@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <OutputType>WinExe</OutputType>
+        <RootNamespace>ImageViewerSuccession</RootNamespace>
+        <AssemblyName>ImageViewerSuccession</AssemblyName>
+        <IsWebBootstrapper>false</IsWebBootstrapper>
+        <PublishUrl>publish\</PublishUrl>
+        <Install>true</Install>
+        <InstallFrom>Disk</InstallFrom>
+        <UpdateEnabled>false</UpdateEnabled>
+        <UpdateMode>Foreground</UpdateMode>
+        <UpdateInterval>7</UpdateInterval>
+        <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+        <UpdatePeriodically>false</UpdatePeriodically>
+        <UpdateRequired>false</UpdateRequired>
+        <MapFileExtensions>true</MapFileExtensions>
+        <ApplicationRevision>1</ApplicationRevision>
+        <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+        <UseApplicationTrust>false</UseApplicationTrust>
+        <PublishWizardCompleted>true</PublishWizardCompleted>
+        <BootstrapperEnabled>true</BootstrapperEnabled>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    </PropertyGroup>
+    <PropertyGroup>
+        <ManifestCertificateThumbprint>0C7E81D55B5FDB3DE38C4A04A2C63D0348124D5A</ManifestCertificateThumbprint>
+    </PropertyGroup>
+    <PropertyGroup>
+        <ManifestKeyFile>ImageViewerSuccession_TemporaryKey.pfx</ManifestKeyFile>
+    </PropertyGroup>
+    <PropertyGroup>
+        <GenerateManifests>true</GenerateManifests>
+    </PropertyGroup>
+    <PropertyGroup>
+        <SignManifests>true</SignManifests>
+    </PropertyGroup>
+    <ItemGroup>
+        <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+            <Visible>False</Visible>
+            <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+            <Install>true</Install>
+        </BootstrapperPackage>
+        <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+            <Visible>False</Visible>
+            <ProductName>.NET Framework 3.5 SP1</ProductName>
+            <Install>false</Install>
+        </BootstrapperPackage>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CSharp" Version="4.7.0"/>
+        <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0"/>
+    </ItemGroup>
+</Project>
