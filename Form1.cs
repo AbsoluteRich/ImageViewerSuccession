@@ -10,7 +10,7 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
-        toolStrip_fileStatus.Text = "No image loaded!";
+        lblFileStatus.Text = "No image loaded!";
     }
 
     private void SetImage(bool addImage, string imagePath = "")
@@ -18,12 +18,12 @@ public partial class Form1 : Form
         if (addImage)
         {
             pictureBox1.Image = Image.FromFile(imagePath);
-            toolStrip_fileStatus.Text = $"Loaded image: {imagePath}";
+            lblFileStatus.Text = $"Loaded image: {imagePath}";
         }
         else
         {
             pictureBox1.Image = null;
-            toolStrip_fileStatus.Text = "No image loaded!";
+            lblFileStatus.Text = "No image loaded!";
         }
     }
 
@@ -45,5 +45,10 @@ public partial class Form1 : Form
     private void clearToolStripMenuItem_Click(object sender, EventArgs e)
     {
         SetImage(false);
+    }
+
+    private void toolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
     }
 }
