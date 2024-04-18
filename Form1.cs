@@ -6,8 +6,8 @@ namespace ImageViewerSuccession;
 
 public partial class Form1 : Form
 {
-    private Uri _blankPage = new Uri("about:blank");  
-    
+    private Uri _blankPage = new Uri("about:blank");
+
     public Form1()
     {
         InitializeComponent();
