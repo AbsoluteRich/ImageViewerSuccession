@@ -29,73 +29,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip = new System.Windows.Forms.MenuStrip();
-            btnFile = new System.Windows.Forms.ToolStripMenuItem();
-            btnFileOpen = new System.Windows.Forms.ToolStripMenuItem();
-            btnFileClear = new System.Windows.Forms.ToolStripMenuItem();
-            btnView = new System.Windows.Forms.ToolStripMenuItem();
-            txtZoom = new System.Windows.Forms.ToolStripTextBox();
-            btnResize = new System.Windows.Forms.ToolStripMenuItem();
             statusStrip = new System.Windows.Forms.StatusStrip();
             lblFileStatus = new System.Windows.Forms.ToolStripStatusLabel();
             filePicker = new System.Windows.Forms.OpenFileDialog();
             picture = new Microsoft.Web.WebView2.WinForms.WebView2();
-            menuStrip.SuspendLayout();
+            numZoom = new System.Windows.Forms.NumericUpDown();
+            btnOpen = new System.Windows.Forms.Button();
+            btnClear = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
             statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picture).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numZoom).BeginInit();
             SuspendLayout();
-            // 
-            // menuStrip
-            // 
-            menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { btnFile, btnView });
-            menuStrip.Location = new System.Drawing.Point(0, 0);
-            menuStrip.Name = "menuStrip";
-            menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            menuStrip.Size = new System.Drawing.Size(430, 24);
-            menuStrip.TabIndex = 2;
-            menuStrip.Text = "menuStrip1";
-            // 
-            // btnFile
-            // 
-            btnFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { btnFileOpen, btnFileClear });
-            btnFile.Name = "btnFile";
-            btnFile.Size = new System.Drawing.Size(37, 20);
-            btnFile.Text = "File";
-            // 
-            // btnFileOpen
-            // 
-            btnFileOpen.Name = "btnFileOpen";
-            btnFileOpen.Size = new System.Drawing.Size(103, 22);
-            btnFileOpen.Text = "Open";
-            btnFileOpen.Click += openToolStripMenuItem_Click;
-            // 
-            // btnFileClear
-            // 
-            btnFileClear.Name = "btnFileClear";
-            btnFileClear.Size = new System.Drawing.Size(103, 22);
-            btnFileClear.Text = "Clear";
-            btnFileClear.Click += clearToolStripMenuItem_Click;
-            // 
-            // btnView
-            // 
-            btnView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { txtZoom, btnResize });
-            btnView.Name = "btnView";
-            btnView.Size = new System.Drawing.Size(44, 20);
-            btnView.Text = "View";
-            // 
-            // txtZoom
-            // 
-            txtZoom.Name = "txtZoom";
-            txtZoom.Size = new System.Drawing.Size(100, 23);
-            txtZoom.Text = "1";
-            txtZoom.TextChanged += txtZoom_TextChanged;
-            // 
-            // btnResize
-            // 
-            btnResize.Name = "btnResize";
-            btnResize.Size = new System.Drawing.Size(180, 22);
-            btnResize.Text = "Resize";
-            btnResize.Click += btnResize_Click;
             // 
             // statusStrip
             // 
@@ -119,48 +64,85 @@
             picture.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             picture.CreationProperties = null;
             picture.DefaultBackgroundColor = System.Drawing.Color.White;
-            picture.Enabled = false;
-            picture.Location = new System.Drawing.Point(0, 30);
+            picture.Location = new System.Drawing.Point(0, 35);
             picture.Name = "picture";
-            picture.Size = new System.Drawing.Size(430, 203);
+            picture.Size = new System.Drawing.Size(430, 198);
             picture.TabIndex = 4;
             picture.ZoomFactor = 1D;
+            // 
+            // numZoom
+            // 
+            numZoom.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            numZoom.Location = new System.Drawing.Point(374, 6);
+            numZoom.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
+            numZoom.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numZoom.Name = "numZoom";
+            numZoom.Size = new System.Drawing.Size(44, 23);
+            numZoom.TabIndex = 5;
+            numZoom.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numZoom.ValueChanged += numZoom_ValueChanged;
+            // 
+            // btnOpen
+            // 
+            btnOpen.Location = new System.Drawing.Point(12, 6);
+            btnOpen.Name = "btnOpen";
+            btnOpen.Size = new System.Drawing.Size(75, 23);
+            btnOpen.TabIndex = 6;
+            btnOpen.Text = "Open File";
+            btnOpen.UseVisualStyleBackColor = true;
+            btnOpen.Click += btnOpen_Click;
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new System.Drawing.Point(93, 6);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new System.Drawing.Size(75, 23);
+            btnClear.TabIndex = 7;
+            btnClear.Text = "Clear File";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
+            // label1
+            // 
+            label1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(292, 9);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(76, 15);
+            label1.TabIndex = 8;
+            label1.Text = "Zoom factor:";
             // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(430, 258);
+            Controls.Add(label1);
+            Controls.Add(btnClear);
+            Controls.Add(btnOpen);
+            Controls.Add(numZoom);
             Controls.Add(picture);
             Controls.Add(statusStrip);
-            Controls.Add(menuStrip);
-            MainMenuStrip = menuStrip;
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Name = "Form1";
             Text = "Image Viewer: Succession";
-            menuStrip.ResumeLayout(false);
-            menuStrip.PerformLayout();
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picture).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numZoom).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
-
-        private System.Windows.Forms.ToolStripMenuItem btnFile;
-
-        private System.Windows.Forms.MenuStrip menuStrip;
 
         #endregion
 
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel lblFileStatus;
         private System.Windows.Forms.OpenFileDialog filePicker;
-        private System.Windows.Forms.ToolStripMenuItem btnFileOpen;
-        private System.Windows.Forms.ToolStripMenuItem btnFileClear;
-        private System.Windows.Forms.ToolStripMenuItem btnResize;
         private Microsoft.Web.WebView2.WinForms.WebView2 picture;
-        private System.Windows.Forms.ToolStripMenuItem btnView;
-        private System.Windows.Forms.ToolStripTextBox txtZoom;
+        private System.Windows.Forms.NumericUpDown numZoom;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label label1;
     }
 }
