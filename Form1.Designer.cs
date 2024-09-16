@@ -125,7 +125,7 @@
             Controls.Add(statusStrip);
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Name = "Form1";
-            Text = "Image Viewer: Succession";
+            Text = "Image Viewer Succession";
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picture).EndInit();
